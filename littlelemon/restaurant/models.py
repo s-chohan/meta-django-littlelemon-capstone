@@ -15,7 +15,9 @@ class Booking(models.Model):
 class Menu(models.Model):
    title = models.CharField(max_length=255) 
    price = models.DecimalField(max_digits=10, decimal_places=2, null=False) 
+   inventory = models.SmallIntegerField(default=1)
    menu_item_description = models.TextField(max_length=1000, default='') 
 
    def __str__(self):
-      return self.title
+      return f'{self.title} : {str(self.price)}'
+   
